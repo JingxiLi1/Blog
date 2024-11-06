@@ -1,0 +1,32 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1>Welcome to the Blog Platform</h1>
+    <h2>Latest Posts</h2>
+    <% if (posts && posts.length > 0) { %>
+      <% posts.forEach(post => { %>
+        <div class="post-summary">
+          <h3><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
+          <p>Author: <%= post.author.email %> | Posted on: <%= post.createdAt.toLocaleDateString() %></p>
+          <p><%= post.body.substring(0, 200) %>...</p>
+          <a href="/posts/<%= post._id %>">Read more</a>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No posts available.</p>
+    <% } %>
+    <a href="/posts">View all posts</a>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

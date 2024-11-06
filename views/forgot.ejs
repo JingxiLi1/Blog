@@ -1,0 +1,23 @@
+<!-- views/forgot.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1>Forgot Password</h1>
+    <% if (info_msg) { %>
+      <p class="info"><%= info_msg %></p>
+    <% } %>
+    <p>Please contact the administrator to reset your password.</p>
+    <a href="/users/login">Return to Login</a>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

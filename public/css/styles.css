@@ -1,0 +1,98 @@
+/* public/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    margin: 0 15px;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  .post-summary {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .post-summary:last-child {
+    border: none;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .info {
+    color: blue;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .pagination span {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .comments {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .replies {
+    margin-left: 20px;
+  }
+  

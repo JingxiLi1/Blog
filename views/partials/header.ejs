@@ -1,0 +1,17 @@
+<!-- views/partials/header.ejs -->
+<header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <% if (!currentUser) { %>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/register">Register</a></li>
+        <% } else { %>
+          <li><a href="/posts/new">New Post</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+  

@@ -1,0 +1,57 @@
+<!-- views/new-post.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- Include Quill styles -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h1>New Post</h1>
+    <% if (errors && errors.length > 0) { %>
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+    <form action="/posts" method="POST">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="<%= typeof title !== 'undefined' ? title : '' %>" required>
+      </div>
+      <div>
+        <label for="body">Content:</label>
+        <div id="editor"><%= typeof body !== 'undefined' ? body : '' %></div>
+        <input type="hidden" name="body" id="body">
+      </div>
+      <div>
+        <label for="tags">Tags (comma-separated):</label>
+        <input type="text" name="tags" id="tags" value="<%= typeof tags !== 'undefined' ? tags : '' %>">
+      </div>
+      <button type="submit">Publish</button>
+    </form>
+  </div>
+
+  <%- include('partials/footer') %>
+
+  <!-- Include Quill script -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+
+    var form = document.querySelector('form');
+    form.onsubmit = function() {
+      var body = document.querySelector('input[name=body]');
+      body.value = quill.root.innerHTML;
+    };
+  </script>
+</body>
+</html>
